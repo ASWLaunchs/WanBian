@@ -8,7 +8,7 @@ The back-end and artificial intelligence technology uses Python scripting langua
 
 After the development of the entire program is completed, the first version will be released on Github, open source and share all technologies.
 
-data stream explain:
+data stream explain:<br>
 ![技术栈数据流及操作任务](images/DataStream_en.png)
 
 
@@ -21,6 +21,6 @@ data stream explain:
 
 整个方案开发完成后将在Github上进行初代版本发布，开源共享全部技术。
 
-数据流图解:
+数据流图解:<br>
 ![技术栈数据流及操作任务](images/DataStream_zh.png)
 
