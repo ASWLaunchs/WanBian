@@ -11,7 +11,7 @@ After the development of the entire program is completed, the first version will
 
 # How did it work ?
 
-data stream explain:<br>
+## data stream
 ![技术栈数据流及操作任务](images/DataStream_en.png)
 
 
