@@ -9,6 +9,8 @@ because of the armhf architecture cannot support newest MongoDB，so we cancel s
 
 After the development of the entire program is completed, the first version will be released on Github, open source and share all technologies.
 
+# How did it work ?
+
 data stream explain:<br>
 ![技术栈数据流及操作任务](images/DataStream_en.png)
 
