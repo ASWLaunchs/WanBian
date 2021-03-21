@@ -1,1 +1,1 @@
-__all__ = ["wanbian_word"]
+__all__ = ["word_testing"]

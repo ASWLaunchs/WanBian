@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-import wanbian_html.wanbian_html as wh
-import wanbian_word.wanbian_word as ww
+import wanbian_html.html_testing as wHtml
+import wanbian_word.word_testing as wWord
 
 
 def ReadCsv():
@@ -15,8 +15,8 @@ def ReadCsv():
 
 def main():
     dataQuestion, dataAnswer = ReadCsv()
-    wh.CreateHTML(dataQuestion, dataAnswer)
-    ww.Output()
+    wHtml.CreateHTML(dataQuestion, dataAnswer)
+    wWord.CreateWord(dataQuestion, dataAnswer)
 
 
 if __name__ == "__main__":
