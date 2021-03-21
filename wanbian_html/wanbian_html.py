@@ -2,7 +2,8 @@
 
 import webbrowser
 
-def CreateHTML():
+
+def CreateHTML(dataQuestion, dataAnswer):
     # create html
     fileHTML = "data/html/demo.html"
     # 打开文件，准备写入

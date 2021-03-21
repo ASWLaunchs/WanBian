@@ -10,11 +10,12 @@ def ReadCsv():
         "Question": str, "Answer": str}, encoding='GB18030')
     dataQuestion = np.array(data['Question'].values.tolist())
     dataAnswer = np.array(data['Answer'].values.tolist())
+    return dataQuestion, dataAnswer
 
 
 def main():
-    ReadCsv()
-    wh.CreateHTML()
+    dataQuestion, dataAnswer = ReadCsv()
+    wh.CreateHTML(dataQuestion, dataAnswer)
     ww.Output()
 
 
