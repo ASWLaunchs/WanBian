@@ -14,13 +14,24 @@ class WanBian:
         # step 1: create a file path which be used storage csv file according to the project name.
         # step 2: create a csv file according to the project name.
         # step 3: process all initialization variables.
-        folder = os.path.exists("resource/"+self.projectName)
-        if not folder:
-            os.makedirs(self.projectName)
-            print("the {} file path was created.".format(folder))
+        # the aim folder.
+        aimFolder = os.path.exists("resource/"+self.projectName)
+        # the aim file.
+        aimFile = os.path.exists(
+            "resource/"+self.projectName+"/"+self.projectName+".csv")
+
+        # determine whether there is a aim folder and aim file.
+        if not aimFolder:
+            os.makedirs('resource/'+self.projectName)
+            print("the {} file path was created just now.".format(aimFolder))
+            if not aimFile:
+                open("resource/"+self.projectName+"/"+self.projectName+".csv",'w')
+                print("the {} file path was created just now.".format(aimFile))
+            else:
+                print("the {} file path was existed.".format(aimFile))
         else:
             print(
-                "the {} file path was existed , please change another project name.".format(folder))
+                "the {} file path was existed , please switch to another project name.".format(aimFolder))
 
     # this method return two arguments what is dataQuestion and dataAnswer.
     def ReadCsv(self):
