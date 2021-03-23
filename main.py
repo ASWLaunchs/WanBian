@@ -13,7 +13,7 @@ def CreateFile(ProjectName):
     folder = os.path.exists("resource/"+ProjectName)
     if not folder:
         os.makedirs(ProjectName)
-        print("the {} file path was created.")
+        print("the {} file path was created.".format(folder))
 
 def ReadCsv(filePath):
     # data be used to storage QUestion col data which in csv.
