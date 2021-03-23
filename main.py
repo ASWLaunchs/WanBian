@@ -19,11 +19,13 @@ class WanBian:
             os.makedirs(self.projectName)
             print("the {} file path was created.".format(folder))
         else:
-            print("the {} file path was existed , please change another project name.")
+            print(
+                "the {} file path was existed , please change another project name.".format(folder))
 
+    # this method return two arguments what is dataQuestion and dataAnswer.
     def ReadCsv(self):
         # data be used to storage Question col data which in csv.
-        data = pd.read_csv("resource/"+self.projectName+self.projectName+".csv", usecols=[0, 1], converters={
+        data = pd.read_csv("resource/"+self.projectName+"/"+self.projectName+".csv", usecols=[0, 1], converters={
             "Question": str, "Answer": str}, encoding='GB18030')
         dataQuestion = np.array(data['Question'].values.tolist())
         dataAnswer = np.array(data['Answer'].values.tolist())
@@ -32,8 +34,9 @@ class WanBian:
 
 def main():
     projectName = input("please input your project name:")
-    CreateFile(projectName)
-    dataQuestion, dataAnswer = ReadCsv(filePath)
+    wB = WanBian(projectName)
+    wB.CreateFile()
+    dataQuestion, dataAnswer = wB.ReadCsv()
     wHtml.CreateHTML(dataQuestion, dataAnswer)
     wWord.CreateWord(dataQuestion, dataAnswer)
 

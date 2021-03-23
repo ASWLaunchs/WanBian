@@ -18,7 +18,7 @@ def CreateWord(dataQuestion, dataAnswer):
 
     document.add_page_break()
 
-    document.save('data/docx/demo.docx')
+    document.save('data/doc/demo.docx')
 
 def Output():
     print("我已经成功输出")
