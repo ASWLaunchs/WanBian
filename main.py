@@ -14,9 +14,11 @@ def CreateFile(ProjectName):
     if not folder:
         os.makedirs(ProjectName)
         print("the {} file path was created.".format(folder))
+    else:
+        print("the {} file path was existed , please change another project name.")
 
 def ReadCsv(filePath):
-    # data be used to storage QUestion col data which in csv.
+    # data be used to storage Question col data which in csv.
     data = pd.read_csv("filePath", usecols=[0, 1], converters={
         "Question": str, "Answer": str}, encoding='GB18030')
     dataQuestion = np.array(data['Question'].values.tolist())
