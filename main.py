@@ -7,22 +7,23 @@ import wanbian_word.word_testing as wWord
 
 class WanBian:
     def __init__(self, projectName):
-        self.ProjectName
-        # CreateFile() be used in initialize related parameters about file.
-    def CreateFile(projectName):
+        self.projectName = projectName
+
+    # CreateFile() be used in initialize related parameters about file.
+    def CreateFile(self):
         # step 1: create a file path which be used storage csv file according to the project name.
         # step 2: create a csv file according to the project name.
         # step 3: process all initialization variables.
-        folder = os.path.exists("resource/"+projectName)
+        folder = os.path.exists("resource/"+self.projectName)
         if not folder:
-            os.makedirs(projectName)
+            os.makedirs(self.projectName)
             print("the {} file path was created.".format(folder))
         else:
             print("the {} file path was existed , please change another project name.")
 
-    def ReadCsv(filePath):
+    def ReadCsv(self):
         # data be used to storage Question col data which in csv.
-        data = pd.read_csv("filePath", usecols=[0, 1], converters={
+        data = pd.read_csv("resource/"+self.projectName+self.projectName+".csv", usecols=[0, 1], converters={
             "Question": str, "Answer": str}, encoding='GB18030')
         dataQuestion = np.array(data['Question'].values.tolist())
         dataAnswer = np.array(data['Answer'].values.tolist())
