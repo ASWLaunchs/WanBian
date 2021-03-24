@@ -25,7 +25,8 @@ class WanBian:
             os.makedirs('resource/'+self.projectName)
             print("the {} file path was created just now.".format(aimFolder))
             if not aimFile:
-                open("resource/"+self.projectName+"/"+self.projectName+".csv",'w')
+                open("resource/"+self.projectName +
+                     "/"+self.projectName+".csv", 'w')
                 print("the {} file path was created just now.".format(aimFile))
             else:
                 print("the {} file path was existed.".format(aimFile))
@@ -35,11 +36,14 @@ class WanBian:
 
     # this method return two arguments what is dataQuestion and dataAnswer.
     def ReadCsv(self):
-        # data be used to storage Question col data which in csv.
-        data = pd.read_csv("resource/"+self.projectName+"/"+self.projectName+".csv", usecols=[0, 1], converters={
-            "Question": str, "Answer": str}, encoding='GB18030')
-        dataQuestion = np.array(data['Question'].values.tolist())
-        dataAnswer = np.array(data['Answer'].values.tolist())
+        try:
+            # data be used to storage Question col data which in csv.
+            data = pd.read_csv("resource/"+self.projectName+"/"+self.projectName+".csv", usecols=[0, 1], converters={
+                "Question": str, "Answer": str}, encoding='GB18030')
+            dataQuestion = np.array(data['Question'].values.tolist())
+            dataAnswer = np.array(data['Answer'].values.tolist())
+        except ValueError:
+            print("csv has been created , but it is nothing in itself.")
         return dataQuestion, dataAnswer
 
 
