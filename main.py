@@ -44,6 +44,7 @@ class WanBian:
             dataAnswer = np.array(data['Answer'].values.tolist())
         except ValueError:
             print("csv has been created , but it is nothing in itself.")
+            dataQuestion = dataAnswer = "it's seem happened some crash"
         return dataQuestion, dataAnswer
 
 
