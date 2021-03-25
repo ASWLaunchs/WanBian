@@ -16,3 +16,6 @@ After the development of the entire program is completed, the first version will
 
 # How is the work progress?
 Now it is cannot avaliable , the project is still under developing status. 
+
+# Our project plan
+A plan: achieve automatic production of unlimited non-repetitive web pages.
