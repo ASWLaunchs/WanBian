@@ -9,18 +9,6 @@ because of the armhf architecture cannot support newest MongoDB，so we cancel s
 
 After the development of the entire program is completed, the first version will be released on Github, open source and share all technologies.
 
-# How did it work ?
-
-## data stream
-![DataStream](images/DataStream_en.png)
-
-# How is the work progress?
-Now it is cannot avaliable , the project is still under developing status. 
-
-# Our project plan (Now is the Early stage)
-Early stage: achieve automatic production of unlimited non-repetitive web pages. （√）
-Middle stage: It can automatically produces web site source codes which only supports the server language is Node.js.（×）
-late stage:It can designs all kinds of IoT project solutions , packs the website server ny the way.(×)
 # Usage
 ## how to automatically produce docx and html files , other types ,and so on? 
 - (1) launch the main.py with some arguments which in WanBian folder.
@@ -47,3 +35,16 @@ which product types do it supports now ?
 - (3) find the csv file with the corresponding project name what in the resource folder in the corresponding project name folder , then editor it following to right content format.
 - (4) when you finished step (3) , save that csv file and input "WanBian server" in console , it's start up !
 - (5) it is in the data folder that your want.
+
+# How did it work ?
+
+## data stream
+![DataStream](images/DataStream_en.png)
+
+# How is the work progress?
+Now it is cannot avaliable , the project is still under developing status. 
+
+# Our project plan (Now is the Early stage)
+Early stage: achieve automatic production of unlimited non-repetitive web pages. （√）
+Middle stage: It can automatically produces web site source codes which only supports the server language is Node.js.（×）
+late stage:It can designs all kinds of IoT project solutions , packs the website server ny the way.(×)
