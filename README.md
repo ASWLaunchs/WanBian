@@ -39,7 +39,9 @@ main.py demo html
 ```
 
 which product types do it supports now ?
+```bash
     html , docx   
+```
 
 - (2) input the project name what you want to create.
 - (3) find the csv file with the corresponding project name what in the resource folder in the corresponding project name folder , then editor it following to right content format.
