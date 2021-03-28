@@ -46,5 +46,7 @@ Now it is cannot avaliable , the project is still under developing status.
 
 # Our project plan (Now is the Early stage)
 Early stage: achieve automatic production of unlimited non-repetitive web pages. （√）
+
 Middle stage: It can automatically produces web site source codes which only supports the server language is Node.js.（×）
+
 late stage:It can designs all kinds of IoT project solutions , packs the website server ny the way.(×)
