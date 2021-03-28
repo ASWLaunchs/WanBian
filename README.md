@@ -17,12 +17,26 @@ After the development of the entire program is completed, the first version will
 # How is the work progress?
 Now it is cannot avaliable , the project is still under developing status. 
 
-# Our project plan
-A plan: achieve automatic production of unlimited non-repetitive web pages.
-
+# Our project plan (Now is the Early stage)
+Early stage: achieve automatic production of unlimited non-repetitive web pages. （√）
+Middle stage: It can automatically produces web site source codes which only supports the server language is Node.js.（×）
+late stage:It can designs all kinds of IoT project solutions , packs the website server ny the way.(×)
 # Usage
-## how to automatically products docx and html ? 
-- (1) launch the main.py which in WanBian folder.
+## how to automatically produce docx and html files , other types ,and so on? 
+- (1) launch the main.py with some arguments which in WanBian folder.
+format:
+    ```bash
+    main.py [project name] [product type]
+    ```
+usage example:
+    ```bash
+    #if you want to product a docx file which name is "demo" , then input as below format.
+    main.py demo docx
+    #Let's change another type , such as HTML.
+    main.py demo html
+    ```
+which product types do it supports now ?
+    html , docx   
 - (2) input the project name what you want to create.
 - (3) find the csv file with the corresponding project name what in the resource folder in the corresponding project name folder , then editor it following to right content format.
 - (4) when you finished step (3) , save that csv file and input "WanBian server" in console , it's start up !
