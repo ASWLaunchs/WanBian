@@ -28,6 +28,7 @@ format:
     ```bash
     main.py [project name] [product type]
     ```
+
 usage example:
     ```bash
     #if you want to product a docx file which name is "demo" , then input as below format.
@@ -35,8 +36,10 @@ usage example:
     #Let's change another type , such as HTML.
     main.py demo html
     ```
+
 which product types do it supports now ?
     html , docx   
+
 - (2) input the project name what you want to create.
 - (3) find the csv file with the corresponding project name what in the resource folder in the corresponding project name folder , then editor it following to right content format.
 - (4) when you finished step (3) , save that csv file and input "WanBian server" in console , it's start up !
