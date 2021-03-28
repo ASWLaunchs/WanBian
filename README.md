@@ -24,26 +24,23 @@ late stage:It can designs all kinds of IoT project solutions , packs the website
 # Usage
 ## how to automatically produce docx and html files , other types ,and so on? 
 - (1) launch the main.py with some arguments which in WanBian folder.
-<br/>
 
 ### format:
 ```bash
-    main.py [project name] [product type]
+main.py [project name] [product type]
 ```
-<br/>
 
 ### usage example:
 ```bash
-    #if you want to product a docx file which name is "demo" , then input as below format.
-    main.py demo docx
-    #Let's change another type , such as HTML.
-    main.py demo html
+#if you want to product a docx file which name is "demo" , then input as below format.
+main.py demo docx
+#Let's change another type , such as HTML.
+main.py demo html
 ```
-<br/>
 
 ### which product types do it supports now ?
     html , docx   
-<br/>
+
 - (2) input the project name what you want to create.
 - (3) find the csv file with the corresponding project name what in the resource folder in the corresponding project name folder , then editor it following to right content format.
 - (4) when you finished step (3) , save that csv file and input "WanBian server" in console , it's start up !
