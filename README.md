@@ -27,18 +27,18 @@ late stage:It can designs all kinds of IoT project solutions , packs the website
 <br/>
 
 ### format:
-    ```bash
+```bash
     main.py [project name] [product type]
-    ```
+```
 <br/>
 
 ### usage example:
-    ```bash
+```bash
     #if you want to product a docx file which name is "demo" , then input as below format.
     main.py demo docx
     #Let's change another type , such as HTML.
     main.py demo html
-    ```
+```
 <br/>
 
 ### which product types do it supports now ?
