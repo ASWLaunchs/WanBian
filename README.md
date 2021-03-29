@@ -32,7 +32,7 @@ which product types do it supports now ?
 ```
 
 - (2) input the project name what you want to create.
-- (3) find the csv file with the corresponding project name what in the data folder in the corresponding project name folder , then editor it following to right content format.
+- (3) find the csv file with the corresponding project name what in the data folder(data/xxx) in the corresponding project name folder(xxx) , then editor it following to right content format.
 - (4) when you finished step (3) , save that csv file and input "WanBian server" in console , it's start up !
 - (5) it is located under the data folder that your want.
 
