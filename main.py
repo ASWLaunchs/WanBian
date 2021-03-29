@@ -17,20 +17,20 @@ class WanBian:
         # step 2: create a csv file according to the project name.
         # step 3: process all initialization variables.
         # the aim folder.
-        aimFolder = os.path.exists("resource/"+self.projectName)
+        aimFolder = os.path.exists("data/"+self.projectName)
         # the aim file.
         aimFile = os.path.exists(
-            "resource/"+self.projectName+"/"+self.projectName+".csv")
+            "data/"+self.projectName+"/"+self.projectName+".csv")
 
         # determine whether there is a aim folder and aim file.
         # there are two if-else parts :
         # (1) first part be used to check the aim folder exist or not .
         # (2) second part be used to check the aim file exist or not after the step done.
         if not aimFolder:
-            os.makedirs('resource/'+self.projectName)
+            os.makedirs('data/'+self.projectName)
             print("the {} file path was created just now.".format(aimFolder))
             if not aimFile:
-                open("resource/"+self.projectName +
+                open("data/"+self.projectName +
                      "/"+self.projectName+".csv", 'w')
                 print("the {} file path was created just now.".format(aimFile))
             else:
