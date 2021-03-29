@@ -30,8 +30,8 @@ class WanBian:
             os.makedirs('data/'+self.projectName)
             print("the {} file path was created just now.".format(aimFolder))
             if not aimFile:
-                open("data/"+self.projectName +
-                     "/"+self.projectName+".csv", 'w')
+                fi = open("data/"+self.projectName + "/_index.csv", 'w')
+                fi.close()
                 print("the {} file path was created just now.".format(aimFile))
             else:
                 print("the {} file path was existed.".format(aimFile))
