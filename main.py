@@ -2,8 +2,8 @@ import sys
 import os
 import pandas as pd
 import numpy as np
-import wanbian_html.html_testing as wHtml
-import wanbian_word.word_testing as wWord
+import wanbian_html.html_testing as wHtmlTesting
+import wanbian_word.word_testing as wWordTesting
 
 
 class WanBian:
@@ -43,7 +43,7 @@ class WanBian:
     def ReadCsv(self):
         try:
             # data be used to storage Question col data which in csv.
-            data = pd.read_csv("resource/"+self.projectName+"/"+self.projectName+".csv", usecols=[0, 1], converters={
+            data = pd.read_csv("data/"+self.projectName+"/"+self.projectName+".csv", usecols=[0, 1], converters={
                 "Question": str, "Answer": str}, encoding='utf-8')
             dataQuestion = np.array(data['Question'].values.tolist())
             dataAnswer = np.array(data['Answer'].values.tolist())
@@ -65,8 +65,8 @@ def main():
             # instantiate the WanBian class.
             wB = WanBian(projectName, projectType)
             dataQuestion, dataAnswer = wB.ReadCsv()
-            # wHtml.CreateHTML(dataQuestion, dataAnswer)
-            # wWord.CreateWord(dataQuestion, dataAnswer)
+            # wHtmlTesting.Create(projectName, dataQuestion, dataAnswer)
+            # wWordTesting.Create(projectName, dataQuestion, dataAnswer)
             print(dataQuestion, dataAnswer)
     else:
         print("You should input projectName and projectType, such as \'python main.py projectName projectType \'")

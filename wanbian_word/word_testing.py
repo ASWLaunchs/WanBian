@@ -2,7 +2,7 @@ from docx import Document
 from docx.shared import Inches
 
 
-def CreateWord(dataQuestion, dataAnswer):
+def Create(projectName, dataQuestion, dataAnswer):
     document = Document()
 
     document.add_heading('Document Title', 0)
@@ -18,7 +18,4 @@ def CreateWord(dataQuestion, dataAnswer):
 
     document.add_page_break()
 
-    document.save('data/doc/demo.docx')
-
-def Output():
-    print("我已经成功输出")
+    document.save("data/"+projectName+"/demo.docx")
