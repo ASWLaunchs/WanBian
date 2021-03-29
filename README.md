@@ -1,6 +1,6 @@
 ﻿# WanBian
 
-![Logo](images/logo.png)
+![Logo](assets/images/logo.png)
 
 Wanbian (WanBian), an intelligent production tool capable of various changes, can automatically produce static web pages.
 
@@ -39,7 +39,7 @@ which product types do it supports now ?
 # How did it work ?
 
 ## data stream
-![DataStream](images/DataStream_en.png)
+![DataStream](assets/images/DataStream_en.png)
 
 # How is the work progress?
 Now it is cannot avaliable , the project is still under developing status. 
