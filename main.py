@@ -2,6 +2,7 @@ import sys
 import os
 import pandas as pd
 import numpy as np
+import packages.wanbian_help.help as wHelp
 import packages.wanbian_html.html_testing as wHtmlTesting
 import packages.wanbian_word.word_testing as wWordTesting
 
@@ -41,8 +42,12 @@ class WanBian:
             print(
                 "the {} file path was existed , please switch to another project name.".format(aimFolder))
 
-    # this method return two arguments what is dataQuestion and dataAnswer.
-    def ReadCsv(self):
+    #
+    def BuildProject(self,args):
+        self.ReadCsv()
+        # this method return corresponding arguments that according to the outputType.
+
+    def ReadCsv(self, projectType):
         if self.fileExistenceStatus:
             try:
                 # data be used to storage Question col data which in csv.
@@ -63,22 +68,36 @@ class WanBian:
 def main():
     # Determine whether the corresponding parameters are passed in that by the sys.argv length when starting the program.
     if len(sys.argv) == 3:
-        if sys.argv[1] is None and sys.argv[2] is None:
-            print(
-                "You should input projectName and projectType, such as \'python main.py [projectName] [projectType] \'\n")
-        else:
+        # instantiate the WanBian class.
+        WB = WanBian(projectName, projectType)
+        swicth(sys.argv[1]){
+            case 'new' and len(sys.argv) == 4:
             # pass two arguments to corresponding variables.
-            projectName = str(sys.argv[1])
-            projectType = str(sys.argv[2])
-            # instantiate the WanBian class.
-            wB = WanBian(projectName, projectType)
-            dataQuestion, dataAnswer = wB.ReadCsv()
-            # wHtmlTesting.Create(projectName, dataQuestion, dataAnswer)
-            # wWordTesting.Create(projectName, dataQuestion, dataAnswer)
-            print(dataQuestion, dataAnswer)
+                projectName = str(sys.argv[2])
+                projectType = str(sys.argv[3])
+                WB.
+                break
+            case 'build' and len(sys.argv) == 3:
+                projectName = str(sys.argv[2])
+                WB.
+                break
+            case 'help' and len(sys.argv) == 1:
+                wHelp.Help()
+                break
+            case 'helpProjectType' and len(sys.argv) == 2:
+                wHelp.HelpProjectType()
+            default:
+                wHelp.HelpNothingInput()
+                break
+        }
+        # wHtmlTesting.Create(projectName, dataQuestion, dataAnswer)
+        # wWordTesting.Create(projectName, dataQuestion, dataAnswer)
+        print(dataQuestion, dataAnswer)
     else:
-        print(
-            "You should input projectName and projectType, such as \'python main.py [projectName] [projectType] \'\n")
+        if sys.argv[1] is None and sys.argv[2] is None:
+            wHelp.HelpNothingInput()
+        else:
+            pass
 
 
 if __name__ == "__main__":

@@ -15,21 +15,35 @@ After the development of the entire program is completed, the first version will
 
 format:
 ```bash
-main.py [project name] [product type]
+main.py [project name] [project type]
 ```
 
 usage example:
 ```bash
-#if you want to product a docx file which name is "demo" , then input as below format.
-main.py demo docx
-#Let's change another type , such as HTML.
-main.py demo html
+#if you want to produce a new project which name is "demo" with testing type , then input as below format.
+main.py demo 0_testing
+#Let's change another type , such as 
+main.py demo 1_game
 ```
 
-which product types do it supports now ?
+what means those nums maps in project type args ?
+- 0 prefix means single page product.
+- 1 prefix means multiple pages product.
+
+|code|introduction|
+|----|----|
+|0_testing|produce the testing docx file.|
+|0_webpage|produce the homepage html file.|
+|0_game|produce the game html+css+js file.|
+|1_testing|produce the testing docx files.|
+|1_webpage|produce the web page html files.|
+|1_game|produce the game html+css+js files.|
+
+which output project types do it supports now ?
 ```bash
     html , docx   
 ```
+
 
 - (2) input the project name what you want to create.
 - (3) find the csv file with the corresponding project name what in the data folder(data/xxx) in the corresponding project name folder(xxx) , then editor it following to right content format.
