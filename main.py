@@ -70,7 +70,8 @@ class WanBian:
 
 def main():
     # Determine whether the corresponding parameters are passed in that by the sys.argv length when starting the program.
-    if len(sys.argv) == 3:
+    WHelp = wHelp.Help()
+    if len(sys.argv) >= 2:
         if sys.argv[1] == 'new' and len(sys.argv) == 4:
             projectName = str(sys.argv[2])
             projectType = str(sys.argv[3])
@@ -80,17 +81,14 @@ def main():
         elif sys.argv[1] == 'build' and len(sys.argv) == 3:
             projectName = str(sys.argv[2])
             WB.BuildFile(projectName)
-        elif sys.argv[1] == 'help' and len(sys.argv) == 1:
-            wHelp.Help()
+        elif sys.argv[1] == 'help' and len(sys.argv) == 2:
+            WHelp.Help()
         elif sys.argv[1] == 'helpProjectType' and len(sys.argv) == 2:
-            wHelp.HelpProjectType()
+            WHelp.HelpProjectType()
         else:
-            wHelp.HelpNothingInput()
+            WHelp.HelpNothingInput()
     else:
-        if sys.argv[1] is None or sys.argv[2] is None:
-            wHelp.HelpNothingInput()
-        else:
-            pass
+        WHelp.HelpNothingInput()
 
 
 if __name__ == "__main__":
