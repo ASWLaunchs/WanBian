@@ -8,11 +8,12 @@ import packages.wanbian_word.word_testing as wWordTesting
 
 
 class WanBian:
+
     def __init__(self, projectName, projectType):
+        # default is false when file is not exist.
+        self.__fileExistenceStatus = False
         self.projectName = projectName
         self.CreateFile()
-        # default is false when file is not exist.
-        self.fileExistenceStatus = False
 
     # CreateFile() be used in initialize related parameters about file.
     def CreateFile(self):
@@ -42,13 +43,15 @@ class WanBian:
             print(
                 "the {} file path was existed , please switch to another project name.".format(aimFolder))
 
-    #
-    def BuildProject(self,args):
-        self.ReadCsv()
+    # BuildProject() is used to complie designated item.
+    def BuildProject(self, projectName):
+        if projectName == "":
+            pass
+        self.ReadCsv(projectName)
         # this method return corresponding arguments that according to the outputType.
 
     def ReadCsv(self, projectType):
-        if self.fileExistenceStatus:
+        if self.__fileExistenceStatus:
             try:
                 # data be used to storage Question col data which in csv.
                 data = pd.read_csv("data/"+self.projectName+"/_index.csv", usecols=[0, 1], converters={
@@ -68,33 +71,23 @@ class WanBian:
 def main():
     # Determine whether the corresponding parameters are passed in that by the sys.argv length when starting the program.
     if len(sys.argv) == 3:
-        # instantiate the WanBian class.
-        WB = WanBian(projectName, projectType)
-        swicth(sys.argv[1]){
-            case 'new' and len(sys.argv) == 4:
-            # pass two arguments to corresponding variables.
-                projectName = str(sys.argv[2])
-                projectType = str(sys.argv[3])
-                WB.
-                break
-            case 'build' and len(sys.argv) == 3:
-                projectName = str(sys.argv[2])
-                WB.
-                break
-            case 'help' and len(sys.argv) == 1:
-                wHelp.Help()
-                break
-            case 'helpProjectType' and len(sys.argv) == 2:
-                wHelp.HelpProjectType()
-            default:
-                wHelp.HelpNothingInput()
-                break
-        }
-        # wHtmlTesting.Create(projectName, dataQuestion, dataAnswer)
-        # wWordTesting.Create(projectName, dataQuestion, dataAnswer)
-        print(dataQuestion, dataAnswer)
+        if sys.argv[1] == 'new' and len(sys.argv) == 4:
+            projectName = str(sys.argv[2])
+            projectType = str(sys.argv[3])
+            # instantiate the WanBian class.
+            WB = WanBian(projectName, projectType)
+            WB.CreateFile()
+        elif sys.argv[1] == 'build' and len(sys.argv) == 3:
+            projectName = str(sys.argv[2])
+            WB.BuildFile(projectName)
+        elif sys.argv[1] == 'help' and len(sys.argv) == 1:
+            wHelp.Help()
+        elif sys.argv[1] == 'helpProjectType' and len(sys.argv) == 2:
+            wHelp.HelpProjectType()
+        else:
+            wHelp.HelpNothingInput()
     else:
-        if sys.argv[1] is None and sys.argv[2] is None:
+        if sys.argv[1] is None or sys.argv[2] is None:
             wHelp.HelpNothingInput()
         else:
             pass
