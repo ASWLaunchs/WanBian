@@ -1,6 +1,6 @@
 ﻿# WanBian
 
-<p align="center"><img src="assets/images/logo.png" style="width:250px;" /></p>
+<p align="center"><img src="assets/images/logo.png" style="width:50%;" /></p>
 
 Wanbian (WanBian), an intelligent production tool capable of various changes, can automatically produce static web pages.
 
