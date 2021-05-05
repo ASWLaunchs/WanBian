@@ -30,9 +30,11 @@ python main.py helpProjectType
 usage example:
 ```bash
 #if you want to produce a new project which name is "demo" with testing type , then input as below format.
-main.py demo 0_testing
-#Let's change another type , such as 
-main.py demo 1_game
+main.py new demo 0_testing
+#let's change another type , such as 
+main.py new demo 1_game
+#delete a project which name is demo, such as 
+main.py delete demo 1_game
 ```
 
 what means those nums maps in project type args ?
