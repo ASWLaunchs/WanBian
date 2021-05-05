@@ -17,7 +17,13 @@ class WanBian:
         self.projectName = ""
         self.projectType = ""
 
+        # initialize testing variables.
+        self.dataQuestion = self.dataAnswer = ''
+        # initialize webpage variables.
+        self.webpageContent = {}
+
     # CreateFile() be used in initialize related parameters about file.
+
     def CreateFile(self, projectName, projectType):
         self.projectName = projectName
         self.projectType = projectType
@@ -90,10 +96,10 @@ class WanBian:
             # data be used to storage Question col data which in csv.
             data = pd.read_csv("data/"+self.projectName+"/_index.csv", usecols=[0, 1], converters={
                 "Question": str, "Answer": str}, encoding='utf-8')
-            dataQuestion = np.array(data['Question'].values.tolist())
-            dataAnswer = np.array(data['Answer'].values.tolist())
+            self.dataQuestion = np.array(data['Question'].values.tolist())
+            self.dataAnswer = np.array(data['Answer'].values.tolist())
         except ValueError:
-            dataQuestion = dataAnswer = "it's seem happened some crash"
+            self.dataQuestion = self.dataAnswer = "it's seem happened some crash"
             print("csv has been created , but it is nothing in itself.")
 
     # __checking is used to check the file existence status.
