@@ -3,8 +3,8 @@ import os
 import time
 import shutil
 import json
-import pandas as pd
 import numpy as np
+import pandas as pd
 import packages.wanbian_help.help as wHelp
 import packages.wanbian_html.html_testing as wHtmlTesting
 import packages.wanbian_word.word_testing as wWordTesting
@@ -51,7 +51,7 @@ class WanBian:
 
                 # set the _config.json file.
                 jsonText = {'config': []}
-                jsonText['config'].append({'proectName': self.projectName,
+                jsonText['config'].append({'projectName': self.projectName,
                                            'projectType': self.projectType,
                                            'projectDate': time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())})
                 jsonData = json.dumps(jsonText, indent=4,
@@ -70,42 +70,47 @@ class WanBian:
     # BuildProject() is used to complie designated item.
     def BuildProject(self, projectName):
         self.projectName = projectName
-        if self.projectName == "":
-            print("please input the project name.")
-        else:
-            self.__readCsv()
-
-    # DeleteProject() is used to delete a existed project.
-    def DeleteProject(self, projectName):
-        self.projectName = projectName
-        if self.projectName == "":
-                print("please input the project name.")
-        else:
-            shutil.rmtree('data/'+self.projectName)
-
-    def __readCsv(self):
         # checking whether the file exist.
         self.__fileExistenceStatus = self.__checking()
-
         # if checked file is existed.
         if self.__fileExistenceStatus:
-            if self.projectType == "0_testing":
-                self.__readCsvTesting()
-            elif self.projectType == "0_webpage":
-                self.__readCsvTesting()
-            elif self.projectType == "0_testing":
-                self.__readCsvTesting()
-            elif self.projectType == "1_testing":
-                pass
-            elif self.projectType == "1_webpage":
-                pass
-            elif self.projectType == "1_testing":
-                pass
+            if self.projectName == "":
+                print("please input the project name.")
             else:
-                pass
+                # get infomation of project configuration.
+                fi = open("data/" + self.projectName + "/_config.json", "r")
+                rs = json.load(fi)
+                self.projectType = rs["config"][0]['projectType']
+                fi.close()
+
+                # choice the function() according to the projectType
+                if self.projectType == '0_testing':
+                    self.__readCsvTesting()
+                elif self.projectType == '0_webpage':
+                    pass
+                elif self.projectType == '0_game':
+                    pass
+                elif self.projectType == '1_testing':
+                    pass
+                elif self.projectType == '1_webpage':
+                    pass
+                elif self.projectType == '1_game':
+                    pass
+                else:
+                    pass
         else:
             print("the project csv file has been created , you can editor now in {}\n".format(
                 "data/"+self.projectName+"/_index.csv"))
+
+    # DeleteProject() is used to delete a existed project.
+
+    def DeleteProject(self, projectName):
+        self.projectName = projectName
+        if self.projectName == "":
+            print("please input the project name.")
+        else:
+            shutil.rmtree('data/'+self.projectName)
+            print("the {} was successfully deleted.".format("self.projectName"))
 
     # testing
     def __readCsvTesting(self):
@@ -130,11 +135,11 @@ class WanBian:
         # the aim file.
         aimFile = os.path.exists(
             "data/"+self.projectName+"/_index"+".csv")
-        if aimFolder:
-            if aimFile:
-                return True
-            else:
-                return False
+        # the aim configuration file.
+        aimConfig = os.path.exists(
+            "data/" + self.projectName + "/_config.json")
+        if aimFolder and aimFile and aimConfig:
+            return True
         else:
             return False
 
