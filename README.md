@@ -52,7 +52,7 @@ what means those nums maps in project type args ?
 
 which output project types do it supports now ?
 ```bash
-    html , docx   
+    html , docx , js  
 ```
 
 
