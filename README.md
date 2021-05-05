@@ -19,6 +19,8 @@ format:
 python main.py help
 > create new project:
 python main.py new [project name] [project type]
+> delete a specific project:
+python main.py delete [project name]
 > start complie project:
 python main.py build [project name]
 > view the project type be supported:
