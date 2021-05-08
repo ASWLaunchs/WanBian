@@ -4,17 +4,21 @@ import os
 import json
 import numpy as np
 import pandas as pd
+import sys
+sys.path.append(sys.path[0]+"/packages/")
 import wanbian_html.html_testing as wHtmlTesting
 import wanbian_word.word_testing as wWordTesting
-
 
 class WanBian:
 
     def __init__(self):
+        # initialize extra class.
+        self.WWordTesting = wWordTesting.wordTesting()
         # default is false when file is not exist.
         self.__fileExistenceStatus = False
         self.projectName = ""
         self.projectType = ""
+        self.projectTitle = "WanBian"
         # initialize webpage variables.
         self.webpageContent = {}
 
@@ -44,15 +48,18 @@ class WanBian:
                 fi.close()
 
                 # set the _config.json file.
+                fi = open("data/"+self.projectName + '/_config.json', 'w')
                 jsonText = {'config': []}
                 jsonText['config'].append({'projectName': self.projectName,
+                                           'projectTitle': self.projectTitle,
                                            'projectType': self.projectType,
                                            'projectDate': time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())})
                 jsonData = json.dumps(jsonText, indent=4,
                                       separators=(',', ': '))
-                fi = open("data/"+self.projectName + '/_config.json', 'w')
                 fi.write(jsonData)
                 fi.close()
+
+                # output tip message.
                 print("the {} project was successfully created just now.".format(
                     self.projectName))
             else:
@@ -75,12 +82,15 @@ class WanBian:
                 fi = open("data/" + self.projectName + "/_config.json", "r")
                 rs = json.load(fi)
                 self.projectType = rs["config"][0]['projectType']
+                self.projectTitle = rs["config"][0]['projectTitle']
                 fi.close()
 
                 # choice the function() according to the projectType
                 if self.projectType == '0_testing':
+                    # rs1 is dataQuestion , rs2 is dataAnswer.
                     rs1, rs2 = self.__readCsvTesting()
-                    wWordTesting.Create(self.projectName, rs1, rs2)
+                    self.WWordTesting.CreateHashArr(
+                        self.projectName, self.projectTitle, rs1, rs2, 2)
                 elif self.projectType == '0_webpage':
                     pass
                 elif self.projectType == '0_game':

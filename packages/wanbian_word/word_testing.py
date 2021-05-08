@@ -1,21 +1,25 @@
 from docx import Document
 from docx.shared import Inches
+import docx
+import wanbian_hash.hash as wHash
 
 
-def Create(projectName, dataQuestion, dataAnswer):
-    document = Document()
+class wordTesting:
+    def __init__(self):
+        # initialize extra class.
+        self.WHash = wHash.Hash()
 
-    document.add_heading('Document Title', 0)
+    def CreateHashArr(self, projectName, projectTitle, dataQuestion, dataAnswer, count):
+        while count > 0:
+            count -= 1
+            document = Document()
+            document.add_heading(projectTitle, 0)
+            for i in range(0, len(dataQuestion)):
+                document.add_paragraph(
+                    dataQuestion[i]+"\n"+dataAnswer[i] + "\n", style='List Number'
+                )
+            document.add_page_break()
+            document.save("data/"+projectName+"/"+self.WHash.hash()+".docx")
 
-    p = document.add_paragraph('please review the questions carefully')
-    p.add_run('bold').bold = True
-    p.add_run(' and some ')
-    p.add_run('italic.').italic = True
-
-    document.add_paragraph(
-        'first item in ordered list', style='List Number'
-    )
-
-    document.add_page_break()
-
-    document.save("data/"+projectName+"/demo.docx")
+    def CreateSerialArr(self, projectName, dataQuestion, dataAnswer, count):
+        pass
