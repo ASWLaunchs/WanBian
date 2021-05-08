@@ -1,8 +1,6 @@
 import sys
 import packages.wanbian.wanbian as WanBian
 import packages.wanbian_help.help as wHelp
-import packages.wanbian_html.html_testing as wHtmlTesting
-import packages.wanbian_word.word_testing as wWordTesting
 
 def main():
     # Determine whether the corresponding parameters are passed in that by the sys.argv length when starting the program.
