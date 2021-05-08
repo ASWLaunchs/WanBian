@@ -4,6 +4,9 @@ import os
 import json
 import numpy as np
 import pandas as pd
+import wanbian_html.html_testing as wHtmlTesting
+import wanbian_word.word_testing as wWordTesting
+
 
 class WanBian:
 
@@ -12,9 +15,6 @@ class WanBian:
         self.__fileExistenceStatus = False
         self.projectName = ""
         self.projectType = ""
-
-        # initialize testing variables.
-        self.dataQuestion = self.dataAnswer = ''
         # initialize webpage variables.
         self.webpageContent = {}
 
@@ -79,7 +79,8 @@ class WanBian:
 
                 # choice the function() according to the projectType
                 if self.projectType == '0_testing':
-                    self.__readCsvTesting()
+                    rs1, rs2 = self.__readCsvTesting()
+                    wWordTesting.Create(self.projectName, rs1, rs2)
                 elif self.projectType == '0_webpage':
                     pass
                 elif self.projectType == '0_game':
@@ -106,18 +107,22 @@ class WanBian:
             print("the {} was successfully deleted.".format("self.projectName"))
 
     # __readCsvTesting() is used to get testing content that user inputed.
+    # the result is assigned to dataQuestion(rs1), dataAnswer(rs2).
     def __readCsvTesting(self):
         try:
+            # initialize testing variables.
+            dataQuestion = dataAnswer = ''
             # data be used to storage Question col data which in csv.
             data = pd.read_csv("data/"+self.projectName+"/_index.csv", usecols=[0, 1], converters={
                 "Question": str, "Answer": str}, encoding='utf-8')
-            self.dataQuestion = np.array(data['Question'].values.tolist())
-            self.dataAnswer = np.array(data['Answer'].values.tolist())
-            print("result was ready.")
-            print(self.dataQuestion, self.dataAnswer)
+            dataQuestion = np.array(data['Question'].values.tolist())
+            dataAnswer = np.array(data['Answer'].values.tolist())
+            print("result was readying...")
+            return dataQuestion, dataAnswer
         except ValueError:
-            self.dataQuestion = self.dataAnswer = "it's seem happened some crash"
+            dataQuestion = dataAnswer = "it's seem happened some crash"
             print("csv has been created , but it is nothing in itself.")
+            return dataQuestion, dataAnswer
 
     # __checking is used to check the file existence status.
     # this method return Boolean value.
@@ -134,4 +139,3 @@ class WanBian:
             return True
         else:
             return False
-
