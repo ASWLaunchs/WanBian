@@ -1,3 +1,4 @@
+
 import time
 import shutil
 import os
@@ -19,6 +20,7 @@ class WanBian:
         self.projectName = ""
         self.projectType = ""
         self.projectTitle = "WanBian"
+        self.projectFileCount = 2
         # initialize webpage variables.
         self.webpageContent = {}
 
@@ -53,6 +55,7 @@ class WanBian:
                 jsonText['config'].append({'projectName': self.projectName,
                                            'projectTitle': self.projectTitle,
                                            'projectType': self.projectType,
+                                           'projectFileCount': self.projectFileCount,
                                            'projectDate': time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())})
                 jsonData = json.dumps(jsonText, indent=4,
                                       separators=(',', ': '))
@@ -83,6 +86,7 @@ class WanBian:
                 rs = json.load(fi)
                 self.projectType = rs["config"][0]['projectType']
                 self.projectTitle = rs["config"][0]['projectTitle']
+                self.projectFileCount = rs["config"][0]['projectFileCount']
                 fi.close()
 
                 # choice the function() according to the projectType
@@ -90,7 +94,7 @@ class WanBian:
                     # rs1 is dataQuestion , rs2 is dataAnswer.
                     rs1, rs2 = self.__readCsvTesting()
                     self.WWordTesting.CreateHashArr(
-                        self.projectName, self.projectTitle, rs1, rs2, 2)
+                        self.projectName, self.projectTitle, rs1, rs2, self.projectFileCount)
                 elif self.projectType == '0_webpage':
                     pass
                 elif self.projectType == '0_game':
