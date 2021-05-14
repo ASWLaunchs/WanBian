@@ -95,6 +95,8 @@ class WanBian:
                     rs1, rs2 = self.__readCsvTesting()
                     self.WWordTesting.CreateHashArr(
                         self.projectName, self.projectTitle, rs1, rs2, self.projectFileCount)
+                    self.WWordTesting.CreateSerialArr(
+                        self.projectName, self.projectTitle, rs1, rs2, self.projectFileCount)
                 elif self.projectType == '0_webpage':
                     pass
                 elif self.projectType == '0_game':

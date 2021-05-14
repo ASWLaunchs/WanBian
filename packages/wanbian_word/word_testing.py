@@ -33,4 +33,4 @@ class wordTesting:
                     dataQuestion[i]+"\n"+dataAnswer[i] + "\n", style='List Number'
                 )
             document.add_page_break()
-            document.save("data/"+projectName+"/"+projectTitle+count+".docx")
+            document.save("data/"+projectName+"/"+projectTitle+str(count)+".docx")
