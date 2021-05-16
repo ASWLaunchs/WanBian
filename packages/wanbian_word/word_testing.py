@@ -1,6 +1,7 @@
 from docx import Document
 from docx.shared import Inches
 import docx
+import random
 import wanbian_hash.hash as wHash
 
 
@@ -15,9 +16,21 @@ class wordTesting:
             count -= 1
             document = Document()
             document.add_heading(projectTitle, 0)
+            isUsedQ = {}
+            isUsedA = {}
+            for i in range(0, len(dataQuestion)):
+                k = random.randint(0, len(dataQuestion))
+                print(k,"--------------")
+                if k in isUsedQ:
+                    isUsedQ[k] = dataQuestion[i]
+                    isUsedA[k] = dataAnswer[i]
+                elif len(isUsedQ) == len(dataQuestion):
+                    break
+                else:
+                    continue
             for i in range(0, len(dataQuestion)):
                 document.add_paragraph(
-                    dataQuestion[i]+"\n"+dataAnswer[i] + "\n", style='List Number'
+                    isUsedQ[i]+"\n"+isUsedA[i] + "\n", style='List Number'
                 )
             document.add_page_break()
             document.save("data/"+projectName+"/"+self.WHash.hash()+".docx")
@@ -33,4 +46,5 @@ class wordTesting:
                     dataQuestion[i]+"\n"+dataAnswer[i] + "\n", style='List Number'
                 )
             document.add_page_break()
-            document.save("data/"+projectName+"/"+projectTitle+str(count)+".docx")
+            document.save("data/"+projectName+"/" +
+                          projectTitle+str(count)+".docx")
