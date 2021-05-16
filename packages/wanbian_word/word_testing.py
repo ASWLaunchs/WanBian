@@ -16,21 +16,20 @@ class wordTesting:
             count -= 1
             document = Document()
             document.add_heading(projectTitle, 0)
-            isUsedQ = {}
-            isUsedA = {}
+            dict = {}
+            dictNew = {}
+            # put data in dict type.
             for i in range(0, len(dataQuestion)):
-                k = random.randint(0, len(dataQuestion))
-                print(k,"--------------")
-                if k in isUsedQ:
-                    isUsedQ[k] = dataQuestion[i]
-                    isUsedA[k] = dataAnswer[i]
-                elif len(isUsedQ) == len(dataQuestion):
-                    break
-                else:
-                    continue
-            for i in range(0, len(dataQuestion)):
+                dict[dataQuestion[i]] = dataAnswer[i]
+            # random shuffles dict.
+            dictKeysList = list(dict.keys())
+            random.shuffle(dictKeysList)
+            for k in dictKeysList:
+                dictNew[k] = dict.get(k)
+            # add those dict to the docx.
+            for k, v in dictNew.items():
                 document.add_paragraph(
-                    isUsedQ[i]+"\n"+isUsedA[i] + "\n", style='List Number'
+                    k+"\n" + v + "\n", style='List Number'
                 )
             document.add_page_break()
             document.save("data/"+projectName+"/"+self.WHash.hash()+".docx")
