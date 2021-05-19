@@ -9,6 +9,11 @@ because of the armhf architecture cannot support newest MongoDB，so we cancel s
 
 After the development of the entire program is completed, the first version will be released on Github, open source and share all technologies.
 
+# Dependent packages
+|-|
+|docx|
+|pandas|
+
 # Usage
 ## how to automatically produce docx and html files , other types ,and so on? 
 - (1) launch the main.py with some arguments which in WanBian folder.
