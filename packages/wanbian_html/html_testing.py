@@ -7,7 +7,17 @@ import wanbian_hash.hash as wHash
 class HtmlTesting:
     def __init__(self):
         # initialize extra class.
-        self.WHash = wHash.Hash()
+        self.WHash = wHash.Hash()     
+        # import css file.
+        self.htmlStyle = ''
+    def GetConf(self):
+        styleNum=random.randint(0,3)
+        if styleNum == 0:
+            self.htmlStyle = 'bootstrap'
+         elif styleNum == 1:
+            self.htmlStyle = 'layui'
+         else:
+            self.htmlStyle = 'kok'
         
     # CreateHashArr() produces the file ,it's file name according to time hash value. 
     def CreateHashArr(self, projectName, projectTitle, dataQuestion, dataAnswer, count):
@@ -17,21 +27,14 @@ class HtmlTesting:
             # open the file ready to write.
             f = open(fileHTML, 'w')
 
-            # assign some content.
-            str1 = 'my name is :'
-            str2 = '--zongxp--'
-
-            message = """
-                <html>
-                <head></head>
-                <body>
-                <p>%s</p>
-                <p>%s</p>
-                </body>
-                </html>""" % (str1, str2)
+            # assign some contents.
+            #first %s is page title,second %s is css link , third %s is html content.
+            htmlCss = "<link rel=\'stylesheet\' href=\'" + self.htmlStyle + "\'>"
+            htmlMain = '<html><title>%s</title><head>%s</head><body>%s</body></html>' % (projectTitle,htmlCss)
+            htmlContent + 
 
             # write sth to the file.
-            f.write(message)
+            f.write(htmlMain+htmlContent)
             # close file.
             f.close()
 
