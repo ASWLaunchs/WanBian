@@ -5,7 +5,7 @@ import random
 import wanbian_hash.hash as wHash
 
 
-class wordTesting:
+class WordTesting:
     def __init__(self):
         # initialize extra class.
         self.WHash = wHash.Hash()
