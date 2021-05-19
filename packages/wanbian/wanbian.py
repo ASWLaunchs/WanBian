@@ -14,7 +14,7 @@ class WanBian:
 
     def __init__(self):
         # initialize extra class.
-        self.WWordTesting = wWordTesting.wordTesting()
+        self.WWordTesting = wWordTesting.WordTesting()
         # default is false when file is not exist.
         self.__fileExistenceStatus = False
         self.projectName = ""
