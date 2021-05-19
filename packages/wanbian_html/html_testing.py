@@ -10,6 +10,8 @@ class HtmlTesting:
         self.WHash = wHash.Hash()     
         # import css file.
         self.htmlStyle = ''
+        
+    #get project configuration about style.
     def GetConf(self):
         styleNum=random.randint(0,3)
         if styleNum == 0:
