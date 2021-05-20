@@ -2,19 +2,17 @@
 
 import webbrowser
 import random
-import wanbian_html.html as whtml
 import wanbian_hash.hash as wHash
 
 class HtmlTesting:
     def __init__(self):
         # initialize extra class.
         self.WHash = wHash.Hash()     
-        self.WHtml = whtml.Html()
         # import css file.
         self.htmlStyle = ''
         
     #get project configuration about style.
-    def GetConf(self):
+    def __getConf(self):
         styleNum=random.randint(0,3)
         if styleNum == 0:
             self.htmlStyle = 'bootstrap'
@@ -25,6 +23,7 @@ class HtmlTesting:
         
     # CreateHashArr() produces the file ,it's file name according to time hash value. 
     def CreateHashArr(self, projectName, projectTitle, dataQuestion, dataAnswer, count):
+        self.__getConf()
         while count > 0:
             # create html.
             fileHTML = "data/"+projectName+"/"+self.WHash.hash()+".html"
@@ -35,7 +34,10 @@ class HtmlTesting:
             #first %s is page title,second %s is css link , third %s is html content.
             htmlCss = "<link rel=\'stylesheet\' href=\'" + self.htmlStyle + "\'>"
             htmlMain = '<html><title>%s</title><head>%s</head><body>%s</body></html>' % (projectTitle,htmlCss)
-            htmlContent = self.WHtml.Create(markdownContent)
+            for i in range[0,len(dataQuestion)]
+            htmlContent.join('''
+                <h4>%</h4><br/><p>%</p><br/>
+            ''' % (dataQuestion[i], dataAnswer[i]))
 
             # write sth to the file.
             f.write(htmlMain+htmlContent)
