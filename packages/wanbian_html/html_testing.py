@@ -2,12 +2,14 @@
 
 import webbrowser
 import random
+import wanbian_markdown.md as wMarkdown
 import wanbian_hash.hash as wHash
 
 class HtmlTesting:
     def __init__(self):
         # initialize extra class.
         self.WHash = wHash.Hash()     
+        self.WMarkdown = wMarkdown.Markdown()
         # import css file.
         self.htmlStyle = ''
         
@@ -22,7 +24,7 @@ class HtmlTesting:
             self.htmlStyle = 'kok'
         
     # CreateHashArr() produces the file ,it's file name according to time hash value. 
-    def CreateHashArr(self, projectName, projectTitle, dataQuestion, dataAnswer, count):
+    def CreateHashArr(self, projectName, projectTitle, markdownContent, count):
         while count > 0:
             # create html.
             fileHTML = "data/"+projectName+"/"+self.WHash.hash()+".html"
@@ -33,7 +35,7 @@ class HtmlTesting:
             #first %s is page title,second %s is css link , third %s is html content.
             htmlCss = "<link rel=\'stylesheet\' href=\'" + self.htmlStyle + "\'>"
             htmlMain = '<html><title>%s</title><head>%s</head><body>%s</body></html>' % (projectTitle,htmlCss)
-            htmlContent + 
+            htmlContent = self.WMarkdown.modularize(markdownContent)
 
             # write sth to the file.
             f.write(htmlMain+htmlContent)
