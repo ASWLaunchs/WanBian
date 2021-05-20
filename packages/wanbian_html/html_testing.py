@@ -35,7 +35,7 @@ class HtmlTesting:
             #first %s is page title,second %s is css link , third %s is html content.
             htmlCss = "<link rel=\'stylesheet\' href=\'" + self.htmlStyle + "\'>"
             htmlMain = '<html><title>%s</title><head>%s</head><body>%s</body></html>' % (projectTitle,htmlCss)
-            htmlContent = self.WMarkdown.modularize(markdownContent)
+            htmlContent = self.WMarkdown.Create(markdownContent)
 
             # write sth to the file.
             f.write(htmlMain+htmlContent)
